@@ -6,16 +6,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './foo-bar-quix-form.component.html'
 })
 export class FooBarQuixFormComponent implements OnInit {
+  
+  fooBarQuixFormGroup: FormGroup;
 
+  @Output() submitNumberOutput = new EventEmitter<number>();
 
-  constructor() {
-
+  constructor(private formBuilder: FormBuilder) {
+    this.fooBarQuixFormGroup = this.formBuilder.group({
+      number: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
   }
 
   submitNumber(): void {
+    this.submitNumberOutput.emit(this.fooBarQuixFormGroup.value.number);
   }
 
 }

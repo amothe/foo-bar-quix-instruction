@@ -1,3 +1,7 @@
-<div class="container"> 
-    To Be Completed
+<div class="container">
+    <form [formGroup]="fooBarQuixFormGroup" (ngSubmit) = "submitNumber()" class="form-group">
+        <label>Number to convert</label>
+        <input formControlName="number" class="form-control"/>
+        <button type="submit" class="btn btn-primary">Convert</button>
+    </form>
 </div>
